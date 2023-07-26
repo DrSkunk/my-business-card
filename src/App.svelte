@@ -1,47 +1,40 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+  import Info from "./Info.svelte";
+  import QRCode from "./QRCode.svelte";
+
+  let page = "info";
+  const pageComponent = {
+    info: Info,
+    qrcode: QRCode,
+  };
+
+  const items = [
+    {
+      label: "QR Code",
+      link: "qrcode",
+    },
+    {
+      label: "Info",
+      link: "info",
+    },
+  ];
 </script>
 
-<main>
-  <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
-</main>
-
-<style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
-</style>
+<div class="h-full w-full bg-slate-100 flex flex-col md:w-96 mx-auto">
+  <img
+    class="rounded-full h-36 w-36 mx-auto my-8"
+    alt="Sebastiaan Jansen "
+    src="/android-chrome-512x512.png"
+  />
+  <nav class="flex justify-around">
+    {#each items as item}
+      <button
+        class="bg-white px-4 py-2 border-b-2 transition-all w-36"
+        class:border-slate-500={page === item.link}
+        class:border-transparent={page !== item.link}
+        on:click={() => (page = item.link)}>{item.label}</button
+      >
+    {/each}
+  </nav>
+  <svelte:component this={pageComponent[page]} />
+</div>

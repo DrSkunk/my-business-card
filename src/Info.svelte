@@ -42,7 +42,7 @@
 <div class="flex flex-col gap-4 p-4">
   {#each info as entry}
     <div class="flex items-center gap-2">
-      <div class="h-12 w-12 p-2 bg-black rounded-full text-white">
+      <div class="h-12 w-12 p-2 mr-2 bg-black rounded-full text-white">
         <svelte:component this={entry.icon} />
       </div>
       <a

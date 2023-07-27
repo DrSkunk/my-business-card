@@ -21,10 +21,10 @@
 </script>
 
 <div
-  class="h-full w-full bg-slate-100 flex flex-col md:w-96 mx-auto items-center"
+  class="font-extralight h-full w-full bg-slate-100 flex flex-col md:w-96 mx-auto items-center"
 >
   <img
-    class="rounded-full h-36 w-36 mx-auto mt-8 mb-2"
+    class="rounded-full h-36 w-36 mx-auto mt-8 mb-2 drop-shadow-lg"
     alt="Sebastiaan Jansen "
     src="/me.jpg"
   />

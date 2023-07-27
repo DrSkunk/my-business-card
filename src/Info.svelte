@@ -42,13 +42,15 @@
 <div class="flex flex-col gap-4 p-4">
   {#each info as entry}
     <div class="flex items-center gap-2">
-      <div class="h-12 w-12 p-2 mr-2 bg-black rounded-full text-white">
-        <svelte:component this={entry.icon} />
-      </div>
       <a
-        class="text-slate-500 hover:text-slate-700"
+        class="text-slate-900 hover:text-slate-500 inline-flex items-center"
         href={entry.link}
-        target="_blank">{entry.value}</a
+        target="_blank"
+      >
+        <div class="h-12 w-12 p-2 mr-2 bg-black rounded-full text-white">
+          <svelte:component this={entry.icon} />
+        </div>
+        {entry.value}</a
       >
     </div>
   {/each}

@@ -40,11 +40,11 @@
     },
   ];
 
-  let title = null;
+  let selectedItem = null;
   let svg = null;
 
   function showQRCode(item) {
-    title = item.label;
+    selectedItem = item;
     svg = new QRCode({
       content: item.link,
       ecl: "L",
@@ -55,16 +55,20 @@
 
 <div class="flex flex-col gap-4 p-4">
   {#if svg}
-    <button
-      class="flex flex-col items-center"
-      on:click={() => {
-        title = null;
-        svg = null;
-      }}
-    >
-      {@html svg}
-      <h2 class="text-2xl font-thin">{title}</h2>
-    </button>
+    <div class="flex flex-col items-center gap-2">
+      <button
+        on:click={() => {
+          selectedItem = null;
+          svg = null;
+        }}>{@html svg}</button
+      >
+      <a
+        href={selectedItem.link}
+        class="text-2xl font-thin hover:text-slate-500"
+      >
+        {selectedItem.label}
+      </a>
+    </div>
   {:else}
     {#each info as item}
       <div class="flex items-center gap-2">

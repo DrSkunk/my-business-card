@@ -14,7 +14,7 @@
       link: "info",
     },
     {
-      label: "QR Code",
+      label: "vCard",
       link: "qrcode",
     },
   ];

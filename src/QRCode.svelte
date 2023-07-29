@@ -5,8 +5,8 @@
 
   const vcard = `BEGIN:VCARD
 VERSION:4.0
-FN:${data.name} ${data.surname}
-N:${data.surname};${data.name};;;
+FN:${data.name} ${data.surname} (Wintergatan)
+N:${data.surname} (Wintergatan);${data.name};;;
 NICKNAME:${data.nickname}
 EMAIL;type=WORK;type=pref:${data.email}
 X-SOCIALPROFILE;TYPE=twitter:https://twitter.com/${data.twitter}
